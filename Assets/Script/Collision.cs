@@ -26,8 +26,10 @@ public class Collision : MonoBehaviour
         }
         else
         {
-            FindObjectOfType<GameManager>().ResetScore();
+            
+           FindObjectOfType<GameManager>().ResetScore();
             FindObjectOfType<CameraShake>().ShakeIt();
+
         }
     }
 

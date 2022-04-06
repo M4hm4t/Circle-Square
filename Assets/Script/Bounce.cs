@@ -75,6 +75,6 @@ public class Bounce : MonoBehaviour
         }
         // player.Open();
 
-        Debug.Log("Kontrol");
+        
     }
 }

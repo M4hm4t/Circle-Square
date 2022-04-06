@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public int score = 0;
+    public int score;
     public Text scoreText;
     public Text highScore;
 
@@ -13,34 +13,36 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        HighScorerAdd();
+        highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
     void Update()
     {
+       // HighScorerAdd();
     }
 
 
     public void ResetScore()
     {
         score = 0;
-        scoreText.text = score.ToString();
+        
+
+
     }
     public void HighScorerAdd()
     {
-        int number = score;
-        scoreText.text=number.ToString();
-       if (number > PlayerPrefs.GetInt("HighScore",0))
+        scoreText.text = score.ToString();
+        if (score > PlayerPrefs.GetInt("HighScore", 0))
         {
-            PlayerPrefs.SetInt("HighScore", number);
-            
+            PlayerPrefs.SetInt("HighScore", score);
+            PlayerPrefs.Save();
         }
-        highScore.text = "High Score:" + number.ToString();
+        highScore.text = "High Score:" + PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
     public void AddScore()
     {
         score++;
         HighScorerAdd();
         scoreText.text = score.ToString();
-        
+
     }
 }

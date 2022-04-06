@@ -18,7 +18,8 @@ public class Controller : MonoBehaviour
    
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
         {
-            position = position * -1; ;
+      
+                position = position * -1; ;
             transform.position = position;
         }
 

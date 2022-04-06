@@ -32,6 +32,10 @@ public class Circle : MonoBehaviour
             FindObjectOfType<CameraShake>().ShakeIt();
             Debug.Log("FAÝL");
         }
+
+
+
+
     }
 
 

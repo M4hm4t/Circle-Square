@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Circle : MonoBehaviour
+public class Collision : MonoBehaviour
 {
     GameManager gameManager;
     CameraShake cameraShake;
-  
     void Start()
     {
-      
+
     }
 
     // Update is called once per frame
@@ -20,22 +19,16 @@ public class Circle : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.Equals("Circle"))
+      
+        if (collision.gameObject.tag.Equals(gameObject.tag))
         {
-
-            Debug.Log("Circle");
             FindObjectOfType<GameManager>().AddScore();
         }
-        if (collision.gameObject.tag.Equals("Square"))
+        else
         {
-
+            FindObjectOfType<GameManager>().ResetScore();
             FindObjectOfType<CameraShake>().ShakeIt();
-            Debug.Log("FAÝL");
         }
-
-
-
-
     }
 
 
